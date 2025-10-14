@@ -76,14 +76,6 @@ const UsersIcon = () => (
   </svg>
 );
 
-const TargetIcon = () => (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" />
-    <circle cx="12" cy="12" r="6" />
-    <circle cx="12" cy="12" r="2" />
-  </svg>
-);
-
 // ============================================================================
 // MAIN HOMEPAGE COMPONENT
 // ============================================================================
@@ -169,15 +161,25 @@ const HomePage = () => {
         {/* HERO SECTION */}
         {/* ================================================================ */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Image with Gradient Overlay */}
+          {/* Background Video with Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-hero z-10" />
-            <img
-              src="https://i0.wp.com/psms72lexingtonacademy.net/wp-content/uploads/2023/12/DJI_0591-scaled.jpg?fit=2560%2C1440&ssl=1"
-              alt="The Lexington Academy building aerial view"
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-full object-cover"
-              loading="eager"
-            />
+              poster="https://i0.wp.com/psms72lexingtonacademy.net/wp-content/uploads/2023/12/DJI_0591-scaled.jpg?fit=2560%2C1440&ssl=1"
+            >
+              <source src="/assets/videos/home/Lexington Academy.mp4" type="video/mp4" />
+              {/* Fallback image if video doesn't load */}
+              <img
+                src="https://i0.wp.com/psms72lexingtonacademy.net/wp-content/uploads/2023/12/DJI_0591-scaled.jpg?fit=2560%2C1440&ssl=1"
+                alt="The Lexington Academy building aerial view"
+                className="w-full h-full object-cover"
+              />
+            </video>
           </div>
 
           {/* Content */}
