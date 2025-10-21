@@ -130,8 +130,12 @@ const Navbar = () => {
               href="/"
               className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-lg"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-navy-700 rounded-full flex items-center justify-center transition-transform duration-150 group-hover:scale-110 shadow-md">
-                <span className="text-white font-bold text-xl" aria-label="Lions">L</span>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-150 group-hover:scale-110 shadow-md">
+                <img 
+                  src="/assets/images/logo.png" 
+                  alt="The Lexington Academy logo" 
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-primary text-lg tracking-tight leading-tight">

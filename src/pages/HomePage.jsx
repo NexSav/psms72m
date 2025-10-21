@@ -161,9 +161,8 @@ const HomePage = () => {
         {/* HERO SECTION */}
         {/* ================================================================ */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Video with Gradient Overlay */}
+          {/* Background Video - No gradient overlay */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-hero z-10" />
             <video
               autoPlay
               loop
@@ -182,23 +181,30 @@ const HomePage = () => {
             </video>
           </div>
 
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 z-10 bg-black/30" />
+
           {/* Content */}
           <div className="relative z-20 text-center px-4 max-w-5xl mx-auto py-32">
             <div className="mb-8 flex justify-center">
               <div className="w-28 h-28 bg-white rounded-full shadow-2xl flex items-center justify-center ring-4 ring-white/30">
-                <span className="text-primary font-bold text-5xl">L</span>
+                <img 
+                  src="/assets/images/logo.png" 
+                  alt="The Lexington Academy logo" 
+                  className="w-24 h-24 object-contain"
+                />
               </div>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight drop-shadow-lg">
               Welcome to<br />The Lexington Academy
             </h1>
 
-            <p className="text-2xl md:text-3xl text-white font-semibold mb-4">
+            <p className="text-2xl md:text-3xl text-white font-semibold mb-4 drop-shadow-md">
               {schoolData.tagline}
             </p>
 
-            <p className="text-lg md:text-xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
               A rigorous, supportive learning environment where students develop the skills and character
               to become <span className="text-accent-yellow font-semibold">lifelong learners</span>.
             </p>
@@ -526,7 +532,11 @@ const HomePage = () => {
               <div className="lg:col-span-2">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-primary font-bold text-2xl">L</span>
+                    <img 
+                      src="/assets/images/logo.png" 
+                      alt="The Lexington Academy logo" 
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
                   <div>
                     <div className="font-bold text-white text-xl">
