@@ -1,11 +1,9 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Target, Eye, Star, Users, ArrowRight } from 'lucide-react';
-import { 
+import {
   LightBulbIcon,
-  GlobeAmericasIcon,
-  AcademicCapIcon
+  GlobeAmericasIcon
 } from '@heroicons/react/24/outline';
 
 const TargetIcon = () => (

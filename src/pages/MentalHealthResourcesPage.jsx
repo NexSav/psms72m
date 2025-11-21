@@ -8,7 +8,6 @@ import {
   UserGroupIcon,
   ShieldCheckIcon,
   ExclamationTriangleIcon,
-  EnvelopeIcon,
   GlobeAltIcon,
   LifebuoyIcon,
   MagnifyingGlassIcon

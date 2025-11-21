@@ -4,9 +4,7 @@ import Footer from '../components/Footer';
 import {
   ShoppingBagIcon,
   CheckCircleIcon,
-  CalendarDaysIcon,
   EnvelopeIcon,
-  ArrowDownTrayIcon,
   GlobeAltIcon,
   ExclamationTriangleIcon,
   InformationCircleIcon
