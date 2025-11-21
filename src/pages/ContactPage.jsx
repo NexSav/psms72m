@@ -1,193 +1,186 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-
-// Icons
-const MapPinIcon = () => (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-
-const PhoneIcon = () => (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
-const PrinterIcon = () => (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-    <polyline points="6 9 6 2 18 2 18 9" />
-    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-    <rect x="6" y="14" width="12" height="8" />
-  </svg>
-);
+import Footer from '../components/Footer';
+import { 
+  MapPinIcon, 
+  PhoneIcon, 
+  PrinterIcon, 
+  EnvelopeIcon,
+  ClockIcon
+} from '@heroicons/react/24/outline';
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-sans selection:bg-secondary selection:text-white">
       <Navbar />
 
-      <main id="main-content" className="pt-24">
-        {/* Page Header */}
-        <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-amber-700 py-16">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-              Contact Us
+      <main id="main-content">
+        {/* ============================================================================
+            HERO SECTION
+        ============================================================================ */}
+        <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-primary overflow-hidden">
+          <div className="absolute inset-0">
+             <div className="absolute inset-0 bg-gradient-to-br from-primary via-navy-900 to-primary"></div>
+             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+             {/* Decorative elements */}
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"></div>
+             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-[100px]"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur rounded-full mb-8 border border-white/20">
+               <EnvelopeIcon className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tight">
+              Get in <span className="font-semibold text-secondary">Touch</span>
             </h1>
-            <p className="text-lg text-white/90">
-              Get in touch with The Lexington Academy
+            <p className="text-xl text-white/80 font-light max-w-2xl mx-auto">
+              We are here to support our students and families. Reach out to us with any questions.
             </p>
           </div>
         </section>
 
-        {/* Content */}
-        <section className="py-16">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Contact Information */}
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
-                    PSMS72 The Lexington Academy
-                  </h2>
-
-                  {/* Address */}
-                  <div className="flex items-start gap-4 mb-6 p-4 rounded-lg bg-blue-50 border border-blue-100">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white">
-                      <MapPinIcon />
+        {/* ============================================================================
+            CONTACT GRID
+        ============================================================================ */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 -mt-20 relative z-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-8">
+              
+              {/* Contact Info Card */}
+              <div className="lg:col-span-1 space-y-6">
+                <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-8">Contact Info</h2>
+                  
+                  <div className="space-y-8">
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-primary">
+                        <MapPinIcon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">Visit Us</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          131 East 104 Street<br />
+                          Manhattan, NY 10029
+                        </p>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-secondary text-sm font-semibold mt-2 inline-block hover:underline">
+                          Get Directions &rarr;
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                      <p className="text-gray-700">
-                        131 East 104 Street<br />
-                        Manhattan, NY 10029
-                      </p>
+
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-secondary">
+                        <PhoneIcon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">Call Us</h3>
+                        <p className="text-gray-600 mb-1">Main Office</p>
+                        <a href="tel:212-860-5831" className="text-lg font-semibold text-primary hover:text-secondary transition-colors">
+                          212-860-5831
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-gray-600">
+                        <PrinterIcon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">Fax</h3>
+                        <p className="text-gray-600 font-medium">
+                          212-860-6094
+                        </p>
+                      </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Phone */}
-                  <div className="flex items-start gap-4 mb-6 p-4 rounded-lg bg-blue-50 border border-blue-100">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white">
-                      <PhoneIcon />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                      <a
-                        href="tel:212-860-5831"
-                        className="text-primary font-semibold hover:underline text-lg"
-                      >
-                        212-860-5831
+                {/* Hours Card */}
+                <div className="bg-primary text-white rounded-3xl shadow-xl p-8 relative overflow-hidden">
+                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                   
+                   <div className="flex items-center gap-4 mb-6">
+                     <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                       <ClockIcon className="w-5 h-5" />
+                     </div>
+                     <h3 className="text-xl font-bold">School Hours</h3>
+                   </div>
+                   
+                   <div className="space-y-3 relative z-10">
+                     <div className="flex justify-between items-center border-b border-white/10 pb-3">
+                       <span className="text-white/80">Monday - Friday</span>
+                       <span className="font-bold">8:00 AM - 3:00 PM</span>
+                     </div>
+                     <p className="text-sm text-white/60 pt-2">
+                       *Main office hours may vary. Please call ahead.
+                     </p>
+                   </div>
+                </div>
+              </div>
+
+              {/* Map & Staff Column */}
+              <div className="lg:col-span-2 space-y-8">
+                {/* Map Placeholder */}
+                <div className="bg-gray-200 rounded-3xl shadow-inner overflow-hidden h-[300px] relative group">
+                   {/* Replace with actual iframe if available */}
+                   <div className="absolute inset-0 flex items-center justify-center bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                      <div className="text-center">
+                        <MapPinIcon className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                        <p className="text-gray-500 font-medium">Interactive Map Integration</p>
+                        <a 
+                          href="https://www.google.com/maps/search/?api=1&query=131+East+104+Street+Manhattan+NY+10029" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 inline-flex items-center px-6 py-2 bg-white rounded-full shadow-sm text-primary font-bold text-sm hover:shadow-md transition-all"
+                        >
+                          Open in Google Maps
+                        </a>
+                      </div>
+                   </div>
+                </div>
+
+                {/* Key Contacts */}
+                <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-8">Key Contacts</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-primary/20 transition-colors">
+                      <h4 className="font-bold text-primary text-lg mb-1">Principal</h4>
+                      <p className="text-gray-900 font-medium mb-2">Dr. Antonio Hernandez, PhD</p>
+                      <a href="mailto:admin@psms72m.org" className="text-sm text-secondary font-semibold hover:underline flex items-center gap-1">
+                        <EnvelopeIcon className="w-4 h-4" /> Contact Administration
                       </a>
                     </div>
-                  </div>
 
-                  {/* Fax */}
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-blue-50 border border-blue-100">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white">
-                      <PrinterIcon />
+                    <div className="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-secondary/20 transition-colors">
+                      <h4 className="font-bold text-secondary text-lg mb-1">Parent Coordinators</h4>
+                      <div className="text-gray-900 font-medium mb-2 space-y-1">
+                        <p>Evelyn Escalera</p>
+                        <p>Darismeily Jose De Abreu</p>
+                      </div>
+                      <span className="text-sm text-gray-500">For family support & engagement</span>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Fax</h3>
-                      <p className="text-gray-700 font-semibold">212-860-6094</p>
-                    </div>
-                  </div>
-                </div>
 
-                {/* School Hours */}
-                <div className="bg-gradient-to-br from-amber-50 to-blue-50 rounded-2xl border border-amber-200 p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">School Hours</h3>
-                  <div className="space-y-2 text-gray-700">
-                    <p><span className="font-semibold">Monday - Friday:</span> 8:00 AM - 3:00 PM</p>
-                    <p className="text-sm text-gray-600 mt-4">
-                      Main office hours may vary. Please call ahead for assistance.
-                    </p>
+                    <div className="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-300 transition-colors md:col-span-2">
+                       <h4 className="font-bold text-gray-900 text-lg mb-2">General Inquiries</h4>
+                       <p className="text-gray-600 mb-4">For questions about registration, records, or general information.</p>
+                       <div className="flex gap-4">
+                         <a href="tel:212-860-5831" className="px-5 py-2 bg-white border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-primary hover:text-primary transition-all shadow-sm">
+                           Call Office
+                         </a>
+                       </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="h-full min-h-[400px] bg-gray-100 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <MapPinIcon />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Location</h3>
-                    <p className="text-gray-600 mb-4">
-                      131 East 104 Street<br />
-                      Manhattan, NY 10029
-                    </p>
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=131+East+104+Street+Manhattan+NY+10029"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-blue-800 transition-colors duration-150 shadow-sm"
-                    >
-                      View on Google Maps
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Additional Contact Info */}
-            <div className="mt-8 bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
-                Get in Touch
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">General Inquiries</h3>
-                  <p className="text-gray-600 mb-2">
-                    For general questions about our school, programs, or admissions, please contact our main office.
-                  </p>
-                  <a href="tel:212-860-5831" className="text-primary font-semibold hover:underline">
-                    212-860-5831
-                  </a>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Parent Coordinator</h3>
-                  <p className="text-gray-600 mb-2">
-                    Contact our Parent Coordinators for family support and engagement opportunities.
-                  </p>
-                  <p className="text-gray-700">
-                    Evelyn Escalera<br />
-                    Darismeily Jose De Abreu
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Principal</h3>
-                  <p className="text-gray-700">
-                    Dr. Antonio Hernandez, PhD
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Emergency Contact</h3>
-                  <p className="text-gray-600 mb-2">
-                    For urgent matters during school hours, please call the main office immediately.
-                  </p>
-                  <a href="tel:212-860-5831" className="text-primary font-semibold hover:underline">
-                    212-860-5831
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-8 mt-12">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm">
-            © 2024 PSMS72 The Lexington Academy. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

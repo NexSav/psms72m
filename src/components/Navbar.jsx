@@ -42,7 +42,22 @@ const Navbar = () => {
         { name: 'Mission Statement', href: '/mission-statement' },
         { name: "Principal's Message", href: '/principals-message' },
         { name: 'Staff Directory', href: '/staff-directory' },
-        { name: 'NYCPS District Links', href: '/nycps-district-links' },
+        {
+          name: 'NYCPS District Links',
+          href: '#',
+          submenu: [
+            {
+              name: 'NYC Public Schools',
+              href: 'https://www.schools.nyc.gov/',
+              external: true
+            },
+            {
+              name: 'PSMS72 Lexington Academy Information',
+              href: 'https://www.schools.nyc.gov/schools/M072',
+              external: true
+            }
+          ]
+        },
         {
           name: 'School Quality Snapshot',
           href: 'https://tools.nycenet.edu/snapshot/2022/04M072/EMS/?utm_source=schools.nyc.gov&utm_medium=Public_Page&utm_campaign=School_Page',
@@ -112,17 +127,6 @@ const Navbar = () => {
           }`}
           aria-label="Primary navigation"
         >
-          {/* Curved bottom edge SVG - visible when solid */}
-          {isSolid && (
-            <svg
-              className="absolute -bottom-3 left-0 w-full h-6 pointer-events-none"
-              viewBox="0 0 100 10"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path d="M0,0 H100 V6 Q50,10 0,6 Z" fill="white" />
-            </svg>
-          )}
 
           <div className="flex items-center justify-between px-6 py-3">
             {/* Logo & Name */}
@@ -159,25 +163,59 @@ const Navbar = () => {
 
                   {/* Dropdown Menu */}
                   {link.submenu && (
-                    <div className="absolute top-full left-0 mt-1 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 ease-out">
+                    <div className="absolute top-full left-0 mt-1 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 ease-out z-50">
                       <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2 mt-1">
                         {link.submenu.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-accent-light hover:text-primary transition-colors duration-150 border-l-2 border-transparent hover:border-secondary"
-                            {...(item.external && {
-                              target: '_blank',
-                              rel: 'noopener noreferrer'
-                            })}
-                          >
-                            {item.name}
-                            {item.external && (
-                              <svg className="inline-block w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
+                          <div key={item.name} className="relative group/nested">
+                            <a
+                              href={item.href}
+                              className="flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-accent-light hover:text-primary transition-colors duration-150 border-l-2 border-transparent hover:border-secondary"
+                              {...(item.external && !item.submenu && {
+                                target: '_blank',
+                                rel: 'noopener noreferrer'
+                              })}
+                            >
+                              <span>
+                                {item.name}
+                                {item.external && !item.submenu && (
+                                  <svg className="inline-block w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                  </svg>
+                                )}
+                              </span>
+                              {item.submenu && (
+                                <svg className="w-4 h-4 -rotate-90" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                              )}
+                            </a>
+
+                            {/* Nested Dropdown */}
+                            {item.submenu && (
+                              <div className="absolute left-full top-0 ml-1 w-64 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-150 ease-out z-50">
+                                <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2">
+                                  {item.submenu.map((nestedItem) => (
+                                    <a
+                                      key={nestedItem.name}
+                                      href={nestedItem.href}
+                                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-accent-light hover:text-primary transition-colors duration-150 border-l-2 border-transparent hover:border-secondary"
+                                      {...(nestedItem.external && {
+                                        target: '_blank',
+                                        rel: 'noopener noreferrer'
+                                      })}
+                                    >
+                                      {nestedItem.name}
+                                      {nestedItem.external && (
+                                        <svg className="inline-block w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                      )}
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
                             )}
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -222,22 +260,46 @@ const Navbar = () => {
                     {link.submenu && (
                       <div className="ml-4 mt-1 space-y-1">
                         {link.submenu.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:text-secondary hover:bg-white rounded-lg transition-colors duration-150"
-                            {...(item.external && {
-                              target: '_blank',
-                              rel: 'noopener noreferrer'
-                            })}
-                          >
-                            {item.name}
-                            {item.external && (
-                              <svg className="inline-block w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
+                          <div key={item.name}>
+                            <a
+                              href={item.href}
+                              className="block px-4 py-2 text-sm text-gray-700 hover:text-secondary hover:bg-white rounded-lg transition-colors duration-150"
+                              {...(item.external && !item.submenu && {
+                                target: '_blank',
+                                rel: 'noopener noreferrer'
+                              })}
+                            >
+                              {item.name}
+                              {item.external && !item.submenu && (
+                                <svg className="inline-block w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                              )}
+                            </a>
+                            {/* Nested submenu for mobile */}
+                            {item.submenu && (
+                              <div className="ml-4 mt-1 space-y-1">
+                                {item.submenu.map((nestedItem) => (
+                                  <a
+                                    key={nestedItem.name}
+                                    href={nestedItem.href}
+                                    className="block px-4 py-2 text-xs text-gray-600 hover:text-secondary hover:bg-white rounded-lg transition-colors duration-150 pl-6"
+                                    {...(nestedItem.external && {
+                                      target: '_blank',
+                                      rel: 'noopener noreferrer'
+                                    })}
+                                  >
+                                    {nestedItem.name}
+                                    {nestedItem.external && (
+                                      <svg className="inline-block w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                      </svg>
+                                    )}
+                                  </a>
+                                ))}
+                              </div>
                             )}
-                          </a>
+                          </div>
                         ))}
                       </div>
                     )}

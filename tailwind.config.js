@@ -50,8 +50,17 @@ module.exports = {
         'gradient-secondary': 'linear-gradient(135deg, #f46524 0%, #ff8c52 100%)',
         'gradient-hero': 'linear-gradient(135deg, rgba(1,32,96,0.95) 0%, rgba(244,101,36,0.85) 100%)',
       },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        'spin-slow': 'spin 12s linear infinite',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
     },
   },
   plugins: [],
 }
-
