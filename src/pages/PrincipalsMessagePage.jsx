@@ -36,7 +36,7 @@ const PrincipalsMessagePage = () => {
               Principal's <span className="font-semibold text-secondary">Message</span>
             </h1>
             <p className="text-lg text-white/80 font-light max-w-2xl mx-auto">
-              A letter from Dr. Antonio Hernandez
+              A letter from Dr. Tracy Smith
             </p>
           </div>
         </section>
@@ -85,7 +85,7 @@ const PrincipalsMessagePage = () => {
                   </div>
                   <div>
                     <p className="text-gray-500 text-sm italic mb-1">Educationally yours,</p>
-                    <h3 className="text-xl font-bold text-gray-900 font-serif">Dr. Antonio Hernandez, PhD</h3>
+                    <h3 className="text-xl font-bold text-gray-900 font-serif">Dr. Tracy Smith, PhD</h3>
                     <p className="text-primary font-medium text-sm uppercase tracking-wider mt-1">Principal, The Lexington Academy</p>
                   </div>
                 </div>
