@@ -80,8 +80,11 @@ const PrincipalsMessagePage = () => {
 
                 <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                   <div className="w-16 h-16 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 border-2 border-white shadow-md">
-                     {/* Placeholder for Principal's Photo if available, otherwise a generic icon or initials */}
-                     <div className="w-full h-full flex items-center justify-center bg-primary text-white font-serif text-xl">DH</div>
+                     <img
+                       src="/assets/images/Dr. Tracy Smith, Principal.jpg"
+                       alt="Dr. Tracy Smith"
+                       className="w-full h-full object-cover"
+                     />
                   </div>
                   <div>
                     <p className="text-gray-500 text-sm italic mb-1">Educationally yours,</p>
