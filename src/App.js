@@ -8,6 +8,7 @@ import UniformPolicyPage from './pages/UniformPolicyPage';
 import StaffDirectoryPage from './pages/StaffDirectoryPage';
 import MentalHealthResourcesPage from './pages/MentalHealthResourcesPage';
 import ContactPage from './pages/ContactPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 
 function App() {
   return (
@@ -21,6 +22,19 @@ function App() {
         <Route path="/staff-directory" element={<StaffDirectoryPage />} />
         <Route path="/mental-health-resources" element={<MentalHealthResourcesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+
+        {/* Coming Soon Pages */}
+        <Route path="/about" element={<ComingSoonPage />} />
+        <Route path="/administrative-team" element={<ComingSoonPage />} />
+        <Route path="/policies-procedures" element={<ComingSoonPage />} />
+        <Route path="/handbook" element={<ComingSoonPage />} />
+        <Route path="/students" element={<ComingSoonPage />} />
+        <Route path="/parents" element={<ComingSoonPage />} />
+        <Route path="/parent-portal" element={<ComingSoonPage />} />
+        <Route path="/calendars" element={<ComingSoonPage />} />
+        <Route path="/monthly-activities-calendar" element={<ComingSoonPage />} />
+        <Route path="/school-year-calendar" element={<ComingSoonPage />} />
+        <Route path="/news" element={<ComingSoonPage />} />
       </Routes>
     </Router>
   );
